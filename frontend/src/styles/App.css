@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #02030a;
+  color: #ffffff;
+  scroll-behavior: smooth;
+}
+
+/* Ensure in-page anchor navigation doesn't hide content under fixed navbar */
+html {
+  scroll-padding-top: 5rem; /* matches Navbar h-20 (80px) */
+}
+
+/* Safety class used in App.jsx to push content below fixed navbar */
+.app-main {
+  padding-top: 5rem; /* fallback for non-tailwind paths */
+}
+
+/* Hide default browser up/down arrows for number inputs since we have custom ones */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* PDF clarity tweaks for the preview capture root */
+.printable {
+  /* Avoid shadow artifacts and heavy blurs in capture */
+  --tw-shadow: 0 0 #0000;
+}
+
+@media print {
+  /* Hide modal chrome when printing */
+  .fixed.inset-0 { display: none !important; }
+  .printable { display: block !important; }
+}
