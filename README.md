@@ -1,2 +1,2 @@
 # MNK
-Data and AI
+Install Data and AI
